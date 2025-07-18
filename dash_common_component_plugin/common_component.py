@@ -47,6 +47,16 @@ def set_location(url):
     set_props(_globel_set_location._id_str, {'search': f'?{t}' if (t := parsed_url.query_string) else ''})
 
 
+def reload():
+    """Reload the current page."""
+    set_props(_globel_reload._id_str, {'reload': True})
+
+
 def redirect(url):
     """Relocate to a new URL, with full page refresh."""
     set_props(_globel_execute_javascript._id_str, {'jsString': f"window.location.assign('{url}');"})
+
+
+def run_js(js_string):
+    """Run javascript code."""
+    set_props(_globel_execute_javascript._id_str, {'jsString': js_string})
