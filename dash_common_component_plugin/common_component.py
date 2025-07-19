@@ -6,7 +6,8 @@ from dash import dcc
 from dash import Input, Output, State
 from dash import set_props
 from yarl import URL
-from . import PACKAGE_NAME
+
+PACKAGE_NAME = 'dash-common-component-plugin'
 
 _globel_get_location = fuc.FefferyLocation(id=f'{PACKAGE_NAME}/global-get-location')  # 全局url监听组件，仅仅起到监听的作用
 _globel_get_load_location = dcc.Store(id=f'{PACKAGE_NAME}/global-get-load-location')  # 用于临时保存刚加载页面的时候的href
