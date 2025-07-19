@@ -56,9 +56,9 @@ def activate(favicon_filepath: Optional[str] = None) -> None:
                 return trigger === 'load' ? href : window.dash_clientside.no_update;
             }
         """,
-        Output(_globel_get_load_location._id_str, 'data'),
-        Input(_globel_get_location._id_str, 'href'),
-        State(_globel_get_location._id_str, 'trigger'),
+        Output(_globel_get_load_location, 'data'),
+        Input(_globel_get_location, 'href'),
+        State(_globel_get_location, 'trigger'),
         prevent_initial_call=True,
     )
 
