@@ -1,16 +1,13 @@
-from common_component import (
-    _globel_get_location as component_get_location,
-    dash_common_component_plugin,
-    set_location,
-    redirect,
-)
+from common_component import activate, OutputComponent, UtilLocation, UtilJs, UtilMessage, UtilNotification
 
 
 __all__ = [
-    component_get_location,
-    dash_common_component_plugin,
-    set_location,
-    redirect,
+    activate,
+    OutputComponent,
+    UtilLocation,
+    UtilJs,
+    UtilMessage,
+    UtilNotification,
 ]
 
 PACKAGE_NAME = 'dash-common-component-plugin'
