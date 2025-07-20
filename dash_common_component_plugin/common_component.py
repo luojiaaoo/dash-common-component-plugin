@@ -43,10 +43,10 @@ def activate(favicon_filepath: Optional[str] = None) -> None:
             _globel_execute_javascript,
             _globel_reload,
         ]
-        if isinstance(layout, Iterable):
-            layout = layout + common_components  # list type
+        if isinstance(layout, list):
+            layout = layout + common_components
         else:
-            layout.children += common_components  # single component type
+            layout = [layout, *common_components]
         return layout
 
     # 注入浏览器回调
