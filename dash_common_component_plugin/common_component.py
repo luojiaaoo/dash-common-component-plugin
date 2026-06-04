@@ -6,6 +6,7 @@ from dash import dcc
 from dash import Input, Output, State
 from dash import set_props
 from yarl import URL
+from pathlib import Path
 
 PACKAGE_NAME = "dash-common-component-plugin"
 
@@ -25,7 +26,7 @@ _globel_execute_javascript = fuc.FefferyExecuteJs(id=f"{PACKAGE_NAME}/global-exe
 _globel_reload = fuc.FefferyReload(id=f"{PACKAGE_NAME}/global-reload")
 
 
-def activate(favicon_filepath: Optional[str] = None) -> None:
+def activate(favicon_filename: Optional[str] = None) -> None:
     """
     激活功能.
 
@@ -37,7 +38,7 @@ def activate(favicon_filepath: Optional[str] = None) -> None:
     def update_layout(layout):
         """注入layout"""
         common_components = [
-            *([fuc.FefferySetFavicon(favicon="/assets/logo.ico")] if favicon_filepath is not None else []),
+            *([fuc.FefferySetFavicon(favicon=f"/assets/{favicon_filename}")] if favicon_filename is not None else []),
             _globel_load_location,
             _globel_get_location,
             _globel_set_location,
@@ -52,7 +53,6 @@ def activate(favicon_filepath: Optional[str] = None) -> None:
             layout = [layout, *common_components]
         return layout
 
-    # 注入浏览器回调
     # 在页面初始化的时候触发，把页面初始化的href保存到一个临时store中
     hooks.clientside_callback(
         """
