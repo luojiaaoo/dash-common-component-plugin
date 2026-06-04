@@ -5,7 +5,7 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / 'README.md').read_text(encoding='utf-8')
 setup(
     name='dash-common-component-plugin',
-    version='0.1.0',
+    version='0.1.1',
     install_requires=[
         'dash>=3.1.1',
         'feffery-antd-components>=0.4',
